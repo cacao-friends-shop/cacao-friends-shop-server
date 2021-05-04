@@ -1,4 +1,4 @@
-package com.cacaofriendsshop.product.scraping;
+package com.cacaofriendsshop.scraping.dto;
 
 import com.cacaofriendsshop.product.domain.Product;
 import lombok.AllArgsConstructor;

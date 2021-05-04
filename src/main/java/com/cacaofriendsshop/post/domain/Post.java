@@ -1,4 +1,4 @@
-package com.cacaofriendsshop.product.domain;
+package com.cacaofriendsshop.post.domain;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -22,7 +22,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
-public class Story {
+public class Post {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

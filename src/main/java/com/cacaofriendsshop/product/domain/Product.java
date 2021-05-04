@@ -28,6 +28,7 @@ public class Product {
     private String price;
     private String characterType;
     private String thumbnailImageUrl;
+    private Integer soldCount;
 
     @ElementCollection
     private List<String> detailPageImageUrls;

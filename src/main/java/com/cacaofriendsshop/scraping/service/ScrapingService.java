@@ -1,9 +1,11 @@
-package com.cacaofriendsshop.product.scraping;
+package com.cacaofriendsshop.scraping.service;
 
+import com.cacaofriendsshop.post.domain.Post;
+import com.cacaofriendsshop.post.repository.PostRepository;
 import com.cacaofriendsshop.product.domain.Product;
-import com.cacaofriendsshop.product.domain.Story;
 import com.cacaofriendsshop.product.repository.ProductRepository;
-import com.cacaofriendsshop.product.repository.StoryRepository;
+import com.cacaofriendsshop.scraping.scrapper.PostScrapper;
+import com.cacaofriendsshop.scraping.scrapper.ProductScrapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +17,7 @@ import java.util.Set;
 public class ScrapingService {
 
     private final ProductRepository productRepository;
-    private final StoryRepository storyRepository;
+    private final PostRepository postRepository;
 
     public void collectProduct() {
         ProductScrapper productScrapper = new ProductScrapper();
@@ -24,8 +26,8 @@ public class ScrapingService {
     }
 
     public void collectStory() {
-        StoryScrapper storyScrapper = new StoryScrapper();
-        Set<Story> stories = storyScrapper.crawlStory();
-        storyRepository.saveAll(stories);
+        PostScrapper postScrapper = new PostScrapper();
+        Set<Post> stories = postScrapper.crawlStory();
+        postRepository.saveAll(stories);
     }
 }

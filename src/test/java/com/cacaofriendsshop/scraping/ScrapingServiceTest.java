@@ -1,6 +1,7 @@
-package com.cacaofriendsshop.product.scraping;
+package com.cacaofriendsshop.scraping;
 
-import com.cacaofriendsshop.product.repository.StoryRepository;
+import com.cacaofriendsshop.post.repository.PostRepository;
+import com.cacaofriendsshop.scraping.service.ScrapingService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -9,7 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 class ScrapingServiceTest {
 
     @Autowired
-    StoryRepository storyRepository;
+    PostRepository postRepository;
 
     @Autowired
     private ScrapingService scrapingService;
