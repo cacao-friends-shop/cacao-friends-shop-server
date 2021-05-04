@@ -1,6 +1,6 @@
 package com.cacaofriendsshop.etc.config등등;
 
-import com.cacaofriendsshop.service.LoginService;
+import com.cacaofriendsshop.member.service.LoginService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.MethodParameter;
 import org.springframework.stereotype.Component;

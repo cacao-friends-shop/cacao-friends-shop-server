@@ -1,10 +1,10 @@
-package com.cacaofriendsshop.service;
+package com.cacaofriendsshop.member.service;
 
-import com.cacaofriendsshop.domain.Member;
-import com.cacaofriendsshop.dto.MemberDto.SaveRequest;
+import com.cacaofriendsshop.member.domain.Member;
+import com.cacaofriendsshop.member.dto.MemberDto.SaveRequest;
 import com.cacaofriendsshop.etc.exception.ResourceDuplicateException;
 import com.cacaofriendsshop.etc.exception.UserNotFoundException;
-import com.cacaofriendsshop.repository.MemberRepository;
+import com.cacaofriendsshop.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

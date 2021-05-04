@@ -1,7 +1,7 @@
 package com.cacaofriendsshop.etc.config등등;
 
 import com.cacaofriendsshop.etc.exception.NoPermissionException;
-import com.cacaofriendsshop.service.LoginService;
+import com.cacaofriendsshop.member.service.LoginService;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;

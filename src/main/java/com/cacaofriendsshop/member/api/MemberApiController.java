@@ -1,14 +1,13 @@
-package com.cacaofriendsshop.api;
+package com.cacaofriendsshop.member.api;
 
-import com.cacaofriendsshop.domain.Member;
-import com.cacaofriendsshop.dto.MemberDto;
-import com.cacaofriendsshop.dto.MemberDto.LoginRequest;
-import com.cacaofriendsshop.dto.MemberDto.SaveRequest;
-import com.cacaofriendsshop.dto.MemberDto.WithdrawOrNicknameUpdateRequest;
+import com.cacaofriendsshop.member.domain.Member;
+import com.cacaofriendsshop.member.dto.MemberDto.LoginRequest;
+import com.cacaofriendsshop.member.dto.MemberDto.SaveRequest;
+import com.cacaofriendsshop.member.dto.MemberDto.WithdrawOrNicknameUpdateRequest;
 import com.cacaofriendsshop.etc.config등등.CurrentMember;
 import com.cacaofriendsshop.etc.config등등.LoginCheck;
-import com.cacaofriendsshop.service.LoginService;
-import com.cacaofriendsshop.service.MemberService;
+import com.cacaofriendsshop.member.service.LoginService;
+import com.cacaofriendsshop.member.service.MemberService;
 import java.net.URI;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

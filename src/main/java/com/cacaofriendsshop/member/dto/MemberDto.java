@@ -1,6 +1,6 @@
-package com.cacaofriendsshop.dto;
+package com.cacaofriendsshop.member.dto;
 
-import com.cacaofriendsshop.domain.Member;
+import com.cacaofriendsshop.member.domain.Member;
 import com.cacaofriendsshop.etc.config등등.MemberLevel;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;

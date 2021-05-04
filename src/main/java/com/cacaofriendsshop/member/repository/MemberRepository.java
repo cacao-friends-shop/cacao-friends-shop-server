@@ -1,6 +1,6 @@
-package com.cacaofriendsshop.repository;
+package com.cacaofriendsshop.member.repository;
 
-import com.cacaofriendsshop.domain.Member;
+import com.cacaofriendsshop.member.domain.Member;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

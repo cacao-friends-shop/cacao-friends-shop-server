@@ -1,4 +1,4 @@
-package com.cacaofriendsshop.domain;
+package com.cacaofriendsshop.member.domain;
 
 import com.cacaofriendsshop.etc.config등등.MemberLevel;
 import javax.persistence.Entity;
