@@ -1,5 +1,7 @@
 package com.cacaofriendsshop.product.domain;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
