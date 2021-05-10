@@ -1,9 +1,9 @@
 package com.cacaofriendsshop.member.service;
 
-import com.cacaofriendsshop.member.domain.Member;
-import com.cacaofriendsshop.member.dto.MemberDto.SaveRequest;
 import com.cacaofriendsshop.etc.exception.ResourceDuplicateException;
 import com.cacaofriendsshop.etc.exception.UserNotFoundException;
+import com.cacaofriendsshop.member.domain.Member;
+import com.cacaofriendsshop.member.dto.MemberDto.SaveRequest;
 import com.cacaofriendsshop.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -51,5 +51,10 @@ public class MemberService {
         if (!memberRepository.existsByEmailAndPassword(email, password)) {
             throw new UserNotFoundException();
         }
+    }
+
+    public Member findById(Long id) {
+        return memberRepository.findById(id)
+                .orElseThrow(IllegalArgumentException::new);
     }
 }

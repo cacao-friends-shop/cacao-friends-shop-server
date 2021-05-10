@@ -1,39 +1,46 @@
 package com.cacaofriendsshop.post.domain;
 
+import com.cacaofriendsshop.member.domain.Member;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.util.List;
+import javax.persistence.ManyToOne;
 
 @Getter
-@ToString
-@EqualsAndHashCode
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
-public class Post {
+public class Comment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String title;
-    private String content;
-    private String characterType;
-    private String createdDateTime;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Post post;
 
-    @ElementCollection
-    private List<String> imageUrls;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Member member;
+
+    private String content;
+    private Integer likeCount;
+    private String createdDate;
+
+    public boolean isSamePostId(Long id) {
+        return this.post.getId().equals(id);
+    }
+
+    public void updateLikeCount(Integer likeCount) {
+        this.likeCount = likeCount;
+    }
 
 }
