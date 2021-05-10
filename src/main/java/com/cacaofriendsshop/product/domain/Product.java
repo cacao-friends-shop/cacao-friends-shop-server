@@ -34,4 +34,9 @@ public class Product {
 
     @ElementCollection
     private List<String> detailPageImageUrls;
+
+    public Product increaseSoldCount(int amount) {
+        this.soldCount += amount;
+        return this;
+    }
 }

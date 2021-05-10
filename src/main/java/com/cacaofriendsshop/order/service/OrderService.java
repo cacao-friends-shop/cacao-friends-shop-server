@@ -44,7 +44,8 @@ public class OrderService {
             .map(orderItemDto -> OrderItem.builder()
                 .amount(orderItemDto.getAmount())
                 .order(order)
-                .product(productRepository.findById(orderItemDto.getProductId()).get())
+                .product(productRepository.findById(orderItemDto.getProductId()).get()
+                    .increaseSoldCount(orderItemDto.getAmount()))
                 .build())
             .collect(Collectors.toList());
 
