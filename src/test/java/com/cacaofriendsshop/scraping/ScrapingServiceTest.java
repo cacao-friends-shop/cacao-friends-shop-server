@@ -2,10 +2,12 @@ package com.cacaofriendsshop.scraping;
 
 import com.cacaofriendsshop.post.repository.PostRepository;
 import com.cacaofriendsshop.scraping.service.ScrapingService;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+@Disabled
 @SpringBootTest
 class ScrapingServiceTest {
 
