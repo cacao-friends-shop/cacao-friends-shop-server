@@ -33,6 +33,7 @@ public class Post {
     private String characterType;
     private String createdDateTime;
 
+
     @ElementCollection
     private List<String> imageUrls;
 

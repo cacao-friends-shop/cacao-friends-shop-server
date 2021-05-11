@@ -17,8 +17,8 @@ import java.util.stream.Collectors;
 public class ProductScrapper {
 
     private static final String BASE_URL = "https://store.kakaofriends.com";
-    private static final String PRODUCT_TARGET_URL = "/kr/products/category/character?categorySeq=8&sort=createDatetime,desc";
-    private static final String CHARACTER_TYPE = "네오";
+    private static final String PRODUCT_TARGET_URL = "/kr/products/category/character?categorySeq=23&sort=createDatetime,desc";
+    private static final String CHARACTER_TYPE = "라이언";
 
 
     public List<Product> createProductsByCrawling() {

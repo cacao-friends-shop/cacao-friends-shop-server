@@ -28,6 +28,7 @@ public class ProductScarpingDto {
                 .price(price)
                 .characterType(characterType)
                 .thumbnailImageUrl(thumbnailImageUrl)
+                .soldCount(0)
                 .detailPageImageUrls(detailPageImageUrls)
                 .build();
     }

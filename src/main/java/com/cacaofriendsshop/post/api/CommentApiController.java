@@ -29,11 +29,15 @@ public class CommentApiController {
     }
 
     @PostMapping
-    public ResponseEntity<Comment> createOrUpdate(@RequestBody CommentRequestDto commentRequestDto) {
+    public ResponseEntity<Comment> create(@RequestBody CommentRequestDto commentRequestDto) {
         Comment saved = commentService.save(commentRequestDto);
         return ResponseEntity.created(URI.create("/" + saved.getId())).body(saved);
     }
 
+    @PostMapping
+    public ResponseEntity<Comment> update(@RequestBody CommentRequestDto commentRequestDto) {
+        return ResponseEntity.ok(commentService.save(commentRequestDto));
+    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteById(@PathVariable Long id) {
