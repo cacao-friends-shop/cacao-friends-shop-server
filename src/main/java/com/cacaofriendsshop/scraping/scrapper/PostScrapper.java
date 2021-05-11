@@ -36,7 +36,7 @@ public class PostScrapper {
                     Post post = Post.builder()
                             .title(title)
                             .characterType(CHARACTER_TYPE)
-                            .updatedDate(updatedDate)
+                            .createdDateTime(updatedDate)
                             .content(content)
                             .imageUrls(imageUrls)
                             .build();
