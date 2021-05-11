@@ -2,6 +2,7 @@ package com.cacaofriendsshop.member.api;
 
 import com.cacaofriendsshop.member.domain.Member;
 import com.cacaofriendsshop.member.dto.MemberDto.LoginRequest;
+import com.cacaofriendsshop.member.dto.MemberDto.LoginResponse;
 import com.cacaofriendsshop.member.dto.MemberDto.SaveRequest;
 import com.cacaofriendsshop.member.dto.MemberDto.WithdrawOrNicknameUpdateRequest;
 import com.cacaofriendsshop.etc.config등등.CurrentMember;
@@ -41,12 +42,17 @@ public class MemberApiController {
     @PostMapping
     public ResponseEntity create(@RequestBody SaveRequest saveRequest) {
         Member savedMember = memberService.saveMember(saveRequest);
+
+        loginService.login(saveRequest.getEmail(), saveRequest.getPassword());
         return ResponseEntity.created(URI.create("/" + savedMember.getId())).build();
     }
 
     @PostMapping("/login")
-    public void login(@RequestBody LoginRequest loginRequest) {
-        loginService.login(loginRequest);
+    public LoginResponse login(@RequestBody LoginRequest loginRequest) {
+        loginService.login(loginRequest.getEmail(), loginRequest.getPassword());
+
+        return loginService.loginInfos();
+
     }
 
     @LoginCheck
@@ -57,13 +63,15 @@ public class MemberApiController {
 
     @LoginCheck
     @PatchMapping
-    public void updateNickname(@CurrentMember String email, @RequestBody WithdrawOrNicknameUpdateRequest requestDto) {
+    public void updateNickname(@CurrentMember String email,
+        @RequestBody WithdrawOrNicknameUpdateRequest requestDto) {
         memberService.updateNickname(email, requestDto.getNickname());
     }
 
     @LoginCheck
     @DeleteMapping
-    public void withdrawMember(@CurrentMember String email, @RequestBody WithdrawOrNicknameUpdateRequest requestDto) {
+    public void withdrawMember(@CurrentMember String email,
+        @RequestBody WithdrawOrNicknameUpdateRequest requestDto) {
         memberService.deleteMember(email, requestDto.getPassword());
     }
 }

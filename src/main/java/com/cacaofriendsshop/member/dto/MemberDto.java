@@ -6,10 +6,23 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 public class MemberDto {
+
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @Builder
+    public static class LoginResponse {
+        private String email;
+        private String nickname;
+        private MemberLevel memberLevel;
+    }
+
 
     @Getter
     @NoArgsConstructor
