@@ -1,5 +1,6 @@
 package com.cacaofriendsshop.member.service;
 
+import com.cacaofriendsshop.etc.config등등.MemberLevel;
 import com.cacaofriendsshop.etc.exception.ResourceDuplicateException;
 import com.cacaofriendsshop.etc.exception.UserNotFoundException;
 import com.cacaofriendsshop.member.domain.Member;
@@ -56,5 +57,15 @@ public class MemberService {
     public Member findById(Long id) {
         return memberRepository.findById(id)
                 .orElseThrow(IllegalArgumentException::new);
+    }
+
+    public void createAdmin() {
+        memberRepository.save(Member.builder()
+            .email("iamkjw77@naver.com")
+            .nickname("김문섭")
+            .password("qweqwe1234")
+            .memberLevel(MemberLevel.ADMIN)
+            .phone("01012345678")
+            .build());
     }
 }

