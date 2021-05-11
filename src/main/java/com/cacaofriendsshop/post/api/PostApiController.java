@@ -30,6 +30,11 @@ public class PostApiController {
         return ResponseEntity.ok(postService.findAll());
     }
 
+    @GetMapping("/{characterType}")
+    public ResponseEntity<List<Post>> findById(@PathVariable String characterType) {
+        return ResponseEntity.ok(postService.findByCharacterType(characterType));
+    }
+
     @PostMapping
     public ResponseEntity<Post> create(@RequestBody Post post) {
         Post savedPost = postService.save(post);

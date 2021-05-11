@@ -22,6 +22,10 @@ public class PostService {
         return postRepository.findById(id).orElseThrow(IllegalArgumentException::new);
     }
 
+    public List<Post> findByCharacterType(String characterType) {
+        return postRepository.findByCharacterType(characterType);
+    }
+
     public void deleteById(Long id) {
         postRepository.deleteById(id);
     }
