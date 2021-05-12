@@ -26,14 +26,14 @@ public class LoginService {
     }
 
     private void setMemberLevel(String email) {
-        Member member = memberRepository.findByEmail(email).orElseThrow();
+        Member member = memberRepository.findByEmail(email).get();
         session.setAttribute(AUTHORITY, member.getMemberLevel());
     }
 
     private void existByEmailAndPassword(LoginRequest loginRequest) {
         String email = loginRequest.getEmail();
         String password = loginRequest.getPassword();
-        if(!memberRepository.existsByEmailAndPassword(email, password)) {
+        if (!memberRepository.existsByEmailAndPassword(email, password)) {
             throw new UserNotFoundException();
         }
     }
