@@ -14,8 +14,8 @@ import java.util.stream.Collectors;
 
 public class PostScrapper {
 
-    private static final String BASE_URL = "https://store.kakaofriends.com/kr/profile/5?tab=story";
-    private static final String CHARACTER_TYPE = "네오";
+    private static final String BASE_URL = "https://store.kakaofriends.com/kr/profile/1?tab=story";
+    private static final String CHARACTER_TYPE = "라이언";
 
     public Set<Post> crawlStory() {
         Set<Post> posts = new LinkedHashSet<>();
@@ -33,10 +33,13 @@ public class PostScrapper {
                     String updatedDate = article.select(".header__DisplayDate-sc-1uyrtg9-7").text();
                     String title = article.select(".contents__Title-sc-1b0iw5u-5").text();
                     String content = article.select(".contents__SubCopy-sc-1b0iw5u-6").text();
+                    if (content.contains("더 보기")) {
+                        continue;
+                    }
                     Post post = Post.builder()
                             .title(title)
                             .characterType(CHARACTER_TYPE)
-                            .updatedDate(updatedDate)
+                            .createdDateTime(updatedDate)
                             .content(content)
                             .imageUrls(imageUrls)
                             .build();
