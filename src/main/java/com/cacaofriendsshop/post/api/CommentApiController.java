@@ -24,10 +24,16 @@ public class CommentApiController {
 
     private final CommentService commentService;
 
-    @GetMapping("/{postId}")
+    @GetMapping("/{postId}/posts")
     public ResponseEntity<List<Comment>> findByPostId(@PathVariable Long postId) {
         return ResponseEntity.ok(commentService.findByPostId(postId));
     }
+
+    @GetMapping("/{memberId}/members")
+    public ResponseEntity<List<Comment>> findByMemberId(@PathVariable Long memberId) {
+        return ResponseEntity.ok(commentService.findByMemberId(memberId));
+    }
+
 
     @PostMapping
     public ResponseEntity<Comment> create(@RequestBody CommentRequestDto commentRequestDto) {

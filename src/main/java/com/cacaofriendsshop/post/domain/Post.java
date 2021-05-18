@@ -32,7 +32,7 @@ public class Post {
     private String content;
     private String characterType;
     private String createdDateTime;
-
+    private Integer likeCount;
 
     @ElementCollection
     private List<String> imageUrls;
