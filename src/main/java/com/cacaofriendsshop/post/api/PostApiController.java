@@ -2,6 +2,7 @@ package com.cacaofriendsshop.post.api;
 
 import com.cacaofriendsshop.post.domain.Post;
 import com.cacaofriendsshop.post.dto.PostResponseDto;
+import com.cacaofriendsshop.post.dto.PostResponseWithCommentDto;
 import com.cacaofriendsshop.post.service.CommentService;
 import com.cacaofriendsshop.post.service.PostService;
 import lombok.RequiredArgsConstructor;
@@ -31,12 +32,12 @@ public class PostApiController {
         return ResponseEntity.ok(postService.findAll());
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<PostResponseDto> findById(@PathVariable Long id) {
+    @GetMapping("/{id}/id")
+    public ResponseEntity<PostResponseWithCommentDto> findById(@PathVariable Long id) {
         return ResponseEntity.ok(postService.findById(id));
     }
 
-    @GetMapping("/{characterType}")
+    @GetMapping("/{characterType}/characterType")
     public ResponseEntity<List<PostResponseDto>> findById(@PathVariable String characterType) {
         return ResponseEntity.ok(postService.findByCharacterType(characterType));
     }
@@ -51,7 +52,7 @@ public class PostApiController {
 
     @PutMapping
     public ResponseEntity<Post> update(@RequestBody Post post) {
-        return ResponseEntity.ok(postService.save(post));
+        return ResponseEntity.ok(postService.update(post));
     }
 
     @DeleteMapping("/{id}")

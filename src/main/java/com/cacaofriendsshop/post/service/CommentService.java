@@ -45,6 +45,13 @@ public class CommentService {
         return commentRepository.save(comment);
     }
 
+    public Comment update(CommentRequestDto commentRequestDto) {
+        Comment byId = commentRepository.findById(commentRequestDto.getId())
+                .orElseThrow(IllegalArgumentException::new);
+        Comment comment = createComment(commentRequestDto);
+        return commentRepository.save(comment);
+    }
+
     private Comment createComment(CommentRequestDto commentRequestDto) {
         Comment comment = Comment.builder()
                 .id(commentRequestDto.getId())

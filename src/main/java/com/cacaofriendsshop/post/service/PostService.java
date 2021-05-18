@@ -2,6 +2,7 @@ package com.cacaofriendsshop.post.service;
 
 import com.cacaofriendsshop.post.domain.Post;
 import com.cacaofriendsshop.post.dto.PostResponseDto;
+import com.cacaofriendsshop.post.dto.PostResponseWithCommentDto;
 import com.cacaofriendsshop.post.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -21,9 +22,9 @@ public class PostService {
         return createPostResponseDto(postRepository.findAll());
     }
 
-    public PostResponseDto findById(Long id) {
+    public PostResponseWithCommentDto findById(Long id) {
         Post byId = postRepository.findById(id).orElseThrow(IllegalArgumentException::new);
-        return PostResponseDto.of(byId, commentService.findByPostId(byId.getId()));
+        return PostResponseWithCommentDto.of(byId, commentService.findByPostId(byId.getId()));
     }
 
     public List<PostResponseDto> findByCharacterType(String characterType) {
@@ -43,5 +44,13 @@ public class PostService {
     @Transactional
     public Post save(Post post) {
         return postRepository.save(post);
+    }
+
+    @Transactional
+    public Post update(Post post) {
+        Post byId = postRepository.findById(post.getId())
+                .orElseThrow(IllegalArgumentException::new);
+        byId.update(post);
+        return byId;
     }
 }

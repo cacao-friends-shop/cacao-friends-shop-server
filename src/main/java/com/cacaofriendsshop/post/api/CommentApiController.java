@@ -34,7 +34,6 @@ public class CommentApiController {
         return ResponseEntity.ok(commentService.findByMemberId(memberId));
     }
 
-
     @PostMapping
     public ResponseEntity<Comment> create(@RequestBody CommentRequestDto commentRequestDto) {
         Comment saved = commentService.save(commentRequestDto);
