@@ -3,7 +3,14 @@ package com.cacaofriendsshop.product.api;
 import com.cacaofriendsshop.product.domain.Product;
 import com.cacaofriendsshop.product.service.ProductService;
 import java.util.List;
+import java.util.Optional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,12 +25,12 @@ public class ProductApiController {
 
     private final ProductService productService;
 
-    // 상품 목록 조회 (타입, 정렬, 검색)
+    // 상품 목록 조회
     @GetMapping
-    public List<Product> getProducts(
-        @RequestParam(required = false) String characterType,
-        @RequestParam(required = false) String sort) {
-        return productService.getProducts(characterType, sort);
+    public Page<Product> getProducts(
+        @RequestParam Optional<String> characterType,
+        @PageableDefault(size = 8, sort = "soldCount", direction = Direction.DESC) Pageable pageable) {
+        return productService.getProducts(characterType, pageable);
     }
 
     // 상품 상세 정보 조회
