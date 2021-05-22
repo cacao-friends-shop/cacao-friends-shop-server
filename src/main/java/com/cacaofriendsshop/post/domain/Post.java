@@ -32,9 +32,29 @@ public class Post {
     private String content;
     private String characterType;
     private String createdDateTime;
-
+    private Integer likeCount;
 
     @ElementCollection
     private List<String> imageUrls;
 
+    public void update(Post post) {
+        if (post.title != null) {
+            this.title = post.title;
+        }
+        if (post.content != null) {
+            this.content = post.content;
+        }
+        if (post.characterType != null) {
+            this.characterType = post.characterType;
+        }
+        if (post.createdDateTime != null) {
+            this.createdDateTime = post.createdDateTime;
+        }
+        if (post.likeCount != null) {
+            this.likeCount = post.likeCount;
+        }
+        if (post.imageUrls != imageUrls) {
+            this.imageUrls = post.imageUrls;
+        }
+    }
 }

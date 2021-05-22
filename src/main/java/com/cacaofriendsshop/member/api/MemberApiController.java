@@ -29,12 +29,12 @@ public class MemberApiController {
     private final MemberService memberService;
     private final LoginService loginService;
 
-    @GetMapping("/duplicated/{email}")
+    @GetMapping("/duplicated/{email}/checked-email")
     public boolean duplicateCheckEmail(@PathVariable String email) {
         return memberService.checkEmail(email);
     }
 
-    @GetMapping("/duplicated/{nickname}")
+    @GetMapping("/duplicated/{nickname}/checked-nickname")
     public boolean duplicateCheckNickname(@PathVariable String nickname) {
         return memberService.checkNickname(nickname);
     }

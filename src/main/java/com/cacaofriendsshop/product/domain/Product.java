@@ -1,7 +1,5 @@
 package com.cacaofriendsshop.product.domain;
 
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -31,6 +29,7 @@ public class Product {
     private String characterType;
     private String thumbnailImageUrl;
     private Integer soldCount;
+    private Integer rating;
 
     @ElementCollection
     private List<String> detailPageImageUrls;

@@ -8,7 +8,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,10 +24,10 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Post post;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Member member;
 
     private String content;
@@ -37,6 +36,10 @@ public class Comment {
 
     public boolean isSamePostId(Long id) {
         return this.post.getId().equals(id);
+    }
+
+    public boolean isSameMemberId(Long id) {
+        return this.member.getId().equals(id);
     }
 
     public void updateLikeCount(Integer likeCount) {
